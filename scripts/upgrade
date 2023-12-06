@@ -53,6 +53,7 @@ ynh_script_progression --message="Installing Node.js packages ..." --weight=45
 
 pushd "$install_dir"
 	ynh_use_nodejs
+	ynh_secure_remove --file="node_modules/"
 	ynh_exec_warn_less ynh_exec_as $app $ynh_node_load_PATH $ynh_npm install ./
 	ynh_exec_warn_less ynh_exec_as $app $ynh_node_load_PATH $ynh_npm rebuild ./
 popd
